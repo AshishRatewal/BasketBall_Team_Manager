@@ -1,0 +1,126 @@
+import React from "react";
+import { FormControl } from "@material-ui/core";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
+let SelectFiled = (props) => {
+  console.log(props.matchPos , " 1:Data");
+  return (
+    <>
+      <FormControl className="w-100">
+        <InputLabel id="demo-simple-select-label">Select Position</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          name="positionInput"
+          onChange={props.onChange}
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          {props && props.data.map(val => {
+            if(props.matchPos.player1 == val.fname){
+              return <MenuItem value={val.position}>{val.position}</MenuItem>
+            }else if(props.matchPos.player2 == val.fname){
+              return <MenuItem value={val.position}>{val.position}</MenuItem>
+            }else if(props.matchPos.player3 == val.fname){
+              return <MenuItem value={val.position}>{val.position}</MenuItem>
+            }else if(props.matchPos.player4 == val.fname){
+              return <MenuItem value={val.position}>{val.position}</MenuItem>
+            }else if(props.matchPos.player5 == val.fname){
+              return <MenuItem value={val.position}>{val.position}</MenuItem>
+            }
+          })}
+        </Select>
+      </FormControl>
+    </>
+  );  
+};
+export default SelectFiled;
+
+
+
+
+
+switch (name) {
+      case "fname":
+        if(value.trim().length >= 1 && isNaN(value)){
+          setPlayer((prevState) => ({
+            ...prevState,
+            [name]: value,
+          }));  
+        }
+        break;
+      case "lname":
+        setPlayer((prevState) => ({
+          ...prevState,
+          [name]: value,
+        }));
+        break;
+      case "height":
+        setPlayer((prevState) => ({
+          ...prevState,
+          [name]: value,
+        }));
+        break;
+      case "position":
+        setPlayer((prevState) => ({
+          ...prevState,
+          [name]: value,
+        }));
+        break;
+      default:
+        break;
+    }
+
+
+
+
+    let matchArray = [];
+    for(let key in isSame){
+      matchArray.push(isSame[key]);
+    }
+    let filteredArray = matchArray.filter((el)=>{
+      return el != null && el != "";
+    });
+    let checkBlank = [];
+    let getSelectBox = document.getElementsByClassName("selectPlay");
+    for(let k=0;k<filteredArray.length;k++){
+      for(let l=k;l<filteredArray.length;l++){
+        if(k!=l && filteredArray[k] === filteredArray[l]){
+
+            for(let i=0;i<getSelectBox.length;i++){
+              if(i == k){
+                getSelectBox[i].style.borderBottom = "1px solid red";
+                console.log("red color: ",i);
+                checkBlank.push(i);
+              }
+              if(i == l){
+                getSelectBox[i].style.borderBottom = "1px solid red";
+                checkBlank.push(i);
+                console.log("red color: ",i);
+              }
+            }
+
+            let unique = [...new Set(checkBlank)];
+            console.log(unique, "unique array");
+
+            // for(let n=0;n<getSelectBox.length;n++){
+            //   for(let o=0; o<unique.length;o++){
+                
+            //   }
+
+            // }
+            let arr=[]
+            getSelectBox.map((f,g)=>{
+              unique.map((l,m)=>{
+                if(f!==l)
+                {
+                  return console.log(m);
+                }
+              })
+            })
+          
+        }
+      }
+    }

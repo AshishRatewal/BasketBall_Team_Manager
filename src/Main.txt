@@ -1,0 +1,36 @@
+import React from 'react';
+import Select from 'react-select';
+
+const SelectFun = () => {
+    const options = [
+        { value: '1', label: 'Chocolate' },
+        { value: '2', label: 'Strawberry' },
+        { value: '3', label: 'Vanilla' },
+    ];
+    let arr = [];
+   const handleChange = (e) => {
+    for(let i=0;i<e.length;i++){
+        for(let key in e[i]){
+            let temp =e[i][key].value;
+            console.log(temp);
+        }
+    }
+  };
+    return (
+        <Select isMulti
+            onChange={handleChange}
+            options={options}
+        />
+    );
+}
+
+export default SelectFun;
+
+
+const options = [
+    { value: 'Point_Guard_(PG)', label: 'Point_Guard_(PG)' },
+    { value: 'Shooting_Guard_(SG)', label: 'Shooting_Guard_(SG)' },
+    { value: 'Small_Forward_(SF)', label: 'Small_Forward_(SF)' },
+    { value: 'Power_Forward_(PF)', label: 'Power_Forward_(PF)' },
+    { value: 'Center_(C)', label: 'Center_(C)' },
+  ];
